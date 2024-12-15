@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Checker</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0d1117; /* Dark background */
+      color: #00FF00; /* Green text for hacker effect */
+      text-align: center;
+      padding: 20px;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Hacker-style background */
+      background-size: cover;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 255, 0, 0.6); /* Green glowing effect */
+      color: #00FF00; /* Glowing green text */
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 5px rgba(0, 255, 0, 0.6); /* Slight glow effect */
+    }
+
+    .file-upload-container {
+      margin: 20px 0;
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #00FF00;
+      background-color: transparent;
+      color: #00FF00;
+      font-size: 1rem;
+      width: 250px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00FF00;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      font-size: 1.1rem;
+      color: #00FF00;
+    }
+
+    button {
+      padding: 14px 28px;
+      background-color: transparent;
+      border: 1px solid #00FF00;
+      color: #00FF00;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background-color: #00FF00;
+      color: #111;
+    }
+
+    button:disabled {
+      background-color: #333;
+      color: #555;
+      cursor: not-allowed;
+    }
+
+    #output {
+      margin-top: 30px;
+      background-color: rgba(0, 0, 0, 0.8); /* Dark background for the output */
+      padding: 20px;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 600px;
+      margin: 30px auto;
+      white-space: pre-wrap;
+      text-align: left;
+      border: 1px solid #00FF00;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace; /* Hacker font */
+    }
+
+    #downloadButton {
+      display: none;
+      background-color: #28a745;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+    }
+
+    .snowflakes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+      width: 100%;
+      height: 100%;
+    }
+
+    .snowflakes div {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: snowflakes-fall 10s linear infinite;
+    }
+
+    .snowflakes div:nth-child(1) {
+      width: 10px;
+      height: 10px;
+      left: 10%;
+      animation-duration: 12s;
+    }
+
+    .snowflakes div:nth-child(2) {
+      width: 12px;
+      height: 12px;
+      left: 30%;
+      animation-duration: 14s;
+    }
+
+    .snowflakes div:nth-child(3) {
+      width: 15px;
+      height: 15px;
+      left: 50%;
+      animation-duration: 16s;
+    }
+
+    .snowflakes div:nth-child(4) {
+      width: 8px;
+      height: 8px;
+      left: 70%;
+      animation-duration: 13s;
+    }
+
+    @keyframes snowflakes-fall {
+      0% {
+        top: -10%;
+        left: 50%;
+      }
+      100% {
+        top: 100%;
+        left: 50%;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Background Sound -->
+  <audio autoplay loop>
+  <source src="https://drive.google.com/uc?export=download&id=1r_p8ZZu6QBz6nI3iFEfSLx_htm7IBFJ0" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <!-- Snowflakes effect -->
+  <div class="snowflakes">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="container">
+    <h1>Merry Christmas! 🎄</h1>
+    <p>Welcome to Mr Hacky Checker.</p>
+
+    <!-- File Upload -->
+    <div class="file-upload-container">
+      <input type="file" id="fileInput" accept=".txt">
+    </div>
+    
+    <!-- Keyword Selection -->
+    <h3>Select Account:</h3>
+    <label><input type="checkbox" id="garena" value="garena.com"> Garena</label>
+    <label><input type="checkbox" id="roblox" value="roblox.com"> Roblox</label>
+    <label><input type="checkbox" id="tiktok" value="tiktok.com"> TikTok</label>
+    <label><input type="checkbox" id="facebook" value="facebook"> Facebook</label>
+    
+    <!-- Process Button -->
+    <button id="processButton">Process File</button>
+    
+    <!-- Download Button -->
+    <button id="downloadButton">Download Result</button>
+
+    <!-- Output -->
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    document.getElementById('processButton').addEventListener('click', function () {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert('Please select a file before processing.');
+        return;
+      }
+
+      // Collect selected keywords
+      const selectedKeywords = [];
+      if (document.getElementById('garena').checked) selectedKeywords.push('garena.com');
+      if (document.getElementById('roblox').checked) selectedKeywords.push('roblox.com');
+      if (document.getElementById('tiktok').checked) selectedKeywords.push('tiktok.com');
+      if (document.getElementById('facebook').checked) selectedKeywords.push('facebook');
+
+      if (selectedKeywords.length === 0) {
+        alert('Please select at least one keyword.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const lines = e.target.result.split('\n');
+        const filteredData = {};
+
+        lines.forEach(line => {
+          const parts = line.trim().split(':');
+          if (parts.length === 3) {
+            const [url, log, pass] = parts;
+
+            // Check if the URL matches any selected keyword
+            if (selectedKeywords.some(keyword => url.includes(keyword))) {
+              if (!filteredData[url]) {
+                filteredData[url] = [];
+              }
+              filteredData[url].push(`${log}:${pass}`);
+            }
+          }
+        });
+
+        let output = '';
+        for (const [url, logPassPairs] of Object.entries(filteredData)) {
+          output += `URL: ${url}\n${logPassPairs.join('\n')}\n\n`;
+        }
+
+        document.getElementById('output').textContent = output.trim() || 'No matching results found.';
+        
+        // Enable the download button if there are results
+        if (output.trim()) {
+          document.getElementById('downloadButton').style.display = 'inline-block';
+        }
+        
+        // Store the filtered result for download
+        document.getElementById('downloadButton').addEventListener('click', function () {
+          const blob = new Blob([output], { type: 'text/plain' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'file.txt';
+          link.click();
+        });
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
